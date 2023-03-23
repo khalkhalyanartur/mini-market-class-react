@@ -1,0 +1,33 @@
+.product {
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .box {
+  position: relative;
+  overflow:hidden;
+  width:150px;
+  height:150px;
+  }
+
+  .box img {
+  margin-top: 10px;
+  width:150px;
+  height: 150px;
+  object-fit:cover;
+  }
+
+  h4 {
+    margin: 0;
+    margin-top: 5px;
+    height: 40px;
+    text-align: center;
+  }
+
+  p {
+    padding: 0;
+    margin: 1px;
+   }
+}
