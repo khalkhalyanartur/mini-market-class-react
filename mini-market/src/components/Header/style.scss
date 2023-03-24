@@ -1,0 +1,13 @@
+.header {
+  display: flex;
+  height: 30px;
+  margin-bottom: 10px;
+  align-items: center;
+
+  &__input {
+    margin-right: 5px;
+  }
+  &__total {
+    margin-left: 10px;
+  }
+}
