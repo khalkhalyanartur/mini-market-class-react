@@ -1,6 +1,4 @@
 import { Component } from "react";
-
-
 import "./style.scss";
 
 class Product extends Component {
@@ -8,30 +6,27 @@ class Product extends Component {
     const { count, name, cost, amount, img, id } = this.props.product
 
     return (
-      <div className={"product"}>
-        <div className="box">
+      <div className="product">
+        <div className="product__box">
           <img
-          src={img}
-          alt="гриб"
-          className="product__image"
+            src={img}
+            alt="гриб"
+            className="product__image"
           />
         </div>
         <h4 className="product__name">{name}</h4>
-        <p className="pruduect__cost">Цена: {cost}</p>
-        <p className="pruduect__count">В корзине: {count}</p>
-        <p className="pruduect__amount">Всего: {amount}</p>
-        <div className="productManage">
+        <p>Цена: {cost}</p>
+        <p>В корзине: {count}</p>
+        <p>Всего: {amount}</p>
+        <div>
           <button
             type="button"
-            className="productManage__button"
             onClick={() => this.props.addToCart(id, "addToCart")}
           >
             +
           </button>
-
           <button
             type="button"
-            className="productManage__button"
             onClick={() => this.props.removeFromCart(id, "removeFromCart")}
           >
             -

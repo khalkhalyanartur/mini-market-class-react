@@ -11,7 +11,7 @@ class Header extends Component {
   }
 
   clearSearch = () => {
-    this.props.search("");
+    this.props.searchProduct("");
     this.setState({ searchText: "" });
   }
 
@@ -35,11 +35,12 @@ class Header extends Component {
         <button
           type="button"
           className="header__button"
-          onClick={() => this.props.search(this.state.searchText)}
+          onClick={() => this.props.searchProduct(this.state.searchText)}
         >
           Найти
         </button>
-        <p>
+        <p className="header__total">
+
           Стоимость заказа: {this.props.basketSum}
         </p>
       </div>
@@ -47,6 +48,5 @@ class Header extends Component {
     )
   }
 }
-
 
 export default Header;

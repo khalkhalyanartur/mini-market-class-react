@@ -17,7 +17,6 @@ const products = [
     amount: 500,
     img: shampinion,
     count: 0
-
   },{
     id: 2,
     name: "Белый гриб",
@@ -25,7 +24,6 @@ const products = [
     amount: 500,
     img: beliy,
     count: 0
-
   },{
     id: 3,
     name: "Лейкофолиота древесинная",
@@ -33,7 +31,6 @@ const products = [
     amount: 500,
     img: leucopholiota,
     count: 0
-
   },{
     id: 4,
     name: "Дождевик ежевидно-колючий",

@@ -1,6 +1,7 @@
 import { Component } from "react";
 import Header from "src/components/Header/Header";
 import Product from "src/components/Product/Product"
+import Error from "src/components/Error/Error"
 import products from "src/constants";
 import productsSearch from "src/helper/productsSearch";
 import "./style.scss";
@@ -17,14 +18,18 @@ class Market extends Component {
     }
   }
 
-  search = (searchProductText) => {
+  searchProduct = (searchProductText) => {
     this.setState({ allProducts: productsSearch(products, searchProductText.trim()) })
   }
 
   addToCart = (id) => {
     const currentProduct = products.find(product => product.id === id);
 
-    if (currentProduct.amount > 0) {
+    if (currentProduct) {
+      this.setState({ message: "Продукт не найден" });
+    }
+
+    if (!currentProduct.amount > 0) {
       this.setState(prevState => ({ basketSum: prevState.basketSum + currentProduct.cost }));
       currentProduct.amount--;
       currentProduct.count++;
@@ -34,6 +39,10 @@ class Market extends Component {
   removeFromCart = (id) => {
     const currentProduct = products.find(product => product.id === id);
 
+    if (!currentProduct) {
+      this.setState({ message: "Продукт не найден" });
+    }
+
     if (currentProduct.count > 0) {
       this.setState(prevState => ({ basketSum: prevState.basketSum - currentProduct.cost }));
       currentProduct.amount++;
@@ -41,13 +50,15 @@ class Market extends Component {
     }
   }
   render() {
+
     return (
-      <div>
+      <div className="shop">
         <Header
-          search={this.search}
+          searchProduct={this.searchProduct}
           basketSum={this.state.basketSum}
         />
-        <div className="productListContent">
+        <Error message={this.state.message} />
+        <div className="shop__market">
           {this.state.allProducts.map(product => (
             <Product
               key={product.id}

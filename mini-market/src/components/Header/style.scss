@@ -4,10 +4,10 @@
   margin-bottom: 10px;
   align-items: center;
 
-  input {
+  &__input {
     margin-right: 5px;
   }
-  p {
+  &__total {
     margin-left: 10px;
   }
 }
