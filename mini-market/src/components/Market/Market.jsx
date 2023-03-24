@@ -25,11 +25,11 @@ class Market extends Component {
   addToCart = (id) => {
     const currentProduct = products.find(product => product.id === id);
 
-    if (currentProduct) {
+    if (!currentProduct) {
       this.setState({ message: "Продукт не найден" });
     }
 
-    if (!currentProduct.amount > 0) {
+    if (currentProduct.amount > 0) {
       this.setState(prevState => ({ basketSum: prevState.basketSum + currentProduct.cost }));
       currentProduct.amount--;
       currentProduct.count++;
